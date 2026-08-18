@@ -34,6 +34,12 @@ body{
     color: var(--red);
     font-size: 1.5rem;
     font-weight: 600;
+    animation: bounceLogo 1s ease-in-out 1 normal;
+}
+
+@keyframes bounceLogo {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-20px); }
 }
 
 .logo span{
@@ -96,6 +102,12 @@ body{
     font-size: 4rem;
     margin-bottom: 1rem;
     line-height: 4.5rem;
+    animation: slide-left 1.4s ease 1 alternate-reverse;;
+}
+
+@keyframes slide-left {
+from { transform: translateX(-40px); opacity: 0; }
+to { transform: translateX(0); opacity: 1; }
 }
 
 .home-text p{
@@ -108,55 +120,69 @@ body{
     padding: 15px 50px;
     border-radius: 10px;
     font-weight: 700;
-    transition: all 0.5s;
+    transition: all 0.5s ease-out;
 }
 
 .home-btn:hover{
     background: #bb5654;
+    padding: 20px 50px;
+    color: #ccc;
+    font-size: 16px;
 }
 
 .home-img img{
     width: 100%;
+    animation: spin 2s ease-in 1 normal;
 }
+
+@keyframes spin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+
+.menu{
+        display: none;
+        cursor: pointer;
+    }
 
 @media (max-width:785px){
     .navegation{
-        padding: 18px 40px;
+        padding: 18px 20px;
     }
 
     .menu{
         display: block;
     }
-    .menu.ativo.bar:nth-child(1){
+    .menu.ativo .bar:nth-child(1){
     transform: translateY(8px) rotate(45deg);
     }
 
-    .menu.ativo.bar:nth-child(2){
+    .menu.ativo .bar:nth-child(2){
     opacity: 0;
     }
 
-.menu.ativo.bar:nth-child(3){
+.menu.ativo .bar:nth-child(3){
     transform: translateY(-8px) rotate(-45deg);
     }
 
     .nav-menu{
         position: fixed;
         right: -100%;
-        top: 70%;
+        top: 70px;
         width: 100%;
         height: 100%;
         flex-direction: column;
         background: var(--white);
         gap: -10px;
-        transition: 0.5s;
+        transition: 0.3s;
     }
 
-    .nav-menu,ativo{
+    .nav-menu.ativo{
         right: 0;
     }
 
     .nav-item{
-        margin: 15px 0;
+        margin: 16px 0;
     }
     
     .home{
@@ -168,7 +194,7 @@ body{
     }
 
     .home .text-h4{
-        font-size: 1rem;
+        font-size: 15px;
     }
 
     .home .text-h1{
@@ -177,10 +203,10 @@ body{
     }
 
     .home p{
-        font-size: 1rem;
+        font-size: 15px;
     }
 
     .home-img{
-        width: 100%;
+        width: 120%;
     }
 }
